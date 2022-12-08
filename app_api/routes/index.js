@@ -4,7 +4,7 @@ var router = express.Router();
 //import controller
 const ctrlPenelitian = require("../controllers/penelitian");
 const ctrlPengabdian = require("../controllers/pengabdian");
-
+const ctrlAuth = require('../controllers/authentication');
 //routes penelitian
 router.route('/penelitian')
     .get(ctrlPenelitian.penelitianShow)
@@ -24,4 +24,8 @@ router.route('/pengabdian/:id')
     .get(ctrlPengabdian.pengabdianReadOne)
     .put(ctrlPengabdian.pengabdianUpdateOne)
     .delete(ctrlPengabdian.pengabdianDeleteOne);
+
+
+router.post('/register', ctrlAuth.register);
+router.post('/login', ctrlAuth.login);
 module.exports = router;

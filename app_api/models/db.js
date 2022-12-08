@@ -20,3 +20,4 @@ mongoose.connection.on('disconnected', () => {
 
 require('./penelitian');
 require('./pengabdian');
+require("./users");
