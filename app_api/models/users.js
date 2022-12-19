@@ -31,7 +31,7 @@ userSchema.methods.validPassword = function (password) {
     return this.hash === hash;
 }
 
-userSchema.method.generateJwt = function () {
+userSchema.methods.generateJwt = function () {
     const expiry = new Date();
     expiry.setDate(expiry.getDate() + 7); // 7 hari
 
@@ -39,7 +39,7 @@ userSchema.method.generateJwt = function () {
         _id: this._id,
         email: this.email,
         name: this.name,
-        exp: parseInt(expiry.getTime / 1000, 10)
+        exp: parseInt(expiry.getTime() / 1000),
     }, process.env.JWT_SECRET);
 }
 
